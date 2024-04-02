@@ -1,0 +1,661 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway',sans-serif;
+}
+
+/*Configuration des couleurs utilisées par le site*/
+:root{
+    --dark-blue:#0065FC;
+    --light-blue:#DEEBFF;
+    --ui-grey:#D9D9D9;
+}
+
+body{
+    background: white;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    padding: 20px 10px;
+}
+
+main{
+    width: 100%;
+}
+
+/*header fixé en haut de l'écran*/
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+}
+
+header .right{
+    max-width: 40%;
+    width: 350px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .left img{
+    cursor: pointer;
+}
+
+.right a{
+    text-decoration: none;
+    color: black;
+    transition: all 0.2s;
+    position: relative;
+}
+
+/*Devient bleu lorsqu'il contient la classe selected*/
+.right a.selected{
+    color: var(--dark-blue);
+}
+
+/*Ajoute une ligne bleu située en haut*/
+.right a::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -30px;
+    width: 0;
+    background: var(--dark-blue);
+    height: 2px;
+    transition: all 0.2s;
+}
+
+/*Assigne le 100% à la largeur*/
+.right a.selected::before{
+    content: "";
+    /* position: absolute;
+    left: 0;
+    top: -30px;
+    background: var(--dark-blue);
+    height: 2px; */
+    width: 100%;
+}
+
+.title{
+    margin-top: 75px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+.title ~ p{
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.search-input{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    margin: 20px 0;
+}
+
+.search-input .map-logo{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--ui-grey);
+    border-radius: 15px 0 0 15px;
+}
+
+.map-logo img{
+    width: 14px;
+}
+
+.search-input input{
+    height: 100%;
+    width: 300px;
+    border: 1px solid var(--ui-grey);
+    outline: none;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    padding-left: 15px;
+}
+
+.search-input button{
+    border: none;outline: none;
+    width: 130px;
+    border-radius: 0 15px 15px 0;
+    padding: 15px 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    background: var(--dark-blue);
+}
+
+.filters{
+    width: 100%;
+    margin: 20px 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.filters ul{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.filters ul li a{
+    text-decoration: none;
+    color: black;
+    padding: 0 10px;
+    text-wrap: nowrap;
+}
+
+.filters ul li{
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--ui-grey);
+    border-radius: 25px;
+    padding: 4px 20px;
+    height: 50px;
+    transition: all 0.2s;
+}
+
+/*S'active lorsqu'une catégorie est cochée*/
+.filters ul li.selected{
+    background: var(--light-blue);
+}
+
+.info-result{
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.info-result .info-logo{
+    border: 1px solid var(--ui-grey);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hebergements{
+    width: 100%;
+    display: flex;
+    height: 626px;
+    margin: 20px 0;
+}
+
+.hebergements > div{
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.hebergements .search{
+    width: 100%;
+    height: 100%;
+    margin: 0 30px;
+    background: var(--ui-grey);
+}
+
+.hebergements .search > h2{
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+}
+
+.hebergements .search .chambres{
+    min-height: 80%
+}
+
+.hebergements .popular{
+    max-width: 420px;
+    width: 40%;
+    height: 100%;
+    background: var(--ui-grey);
+}
+
+.search .chambre{
+    width: 246px;
+    height: 200px;
+    background: white;
+    border-radius: 20px;
+    padding: 3px;
+    cursor: pointer;
+
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search .chambre > img{
+    width: 100%;
+    max-height: 124px;
+    border-radius: 20px 20px 0 0;
+    z-index: -3;
+}
+
+/*Réarrange la dernière image*/
+.search .chambre:last-child > img{
+    background: url("../Images/Chambres/862c3e92b2d2b82697be892a830e5692.jpeg");
+    width: 100%;
+    height: 124px;
+    background-position: center;
+    background-size: cover;
+}
+
+.search .chambre h2{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    padding-left: 10px;
+    background-color: white;
+    z-index: 5;
+}
+
+.search .chambre p{
+    padding-left: 10px;
+    background-color: white;
+    z-index: 5;
+}
+
+.search .chambre .etoiles{
+    height: 12px;
+    display: flex;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.search .chambre .etoiles img{
+    height: 100%;
+    width: 12px;
+}
+
+/*Utilise le display grid dans le but de créer un sorte de grillade avec obligatoirement 3 colonnes*/
+.search .chambres{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.search .more{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 30px;
+}
+
+.popular h2{
+    margin-top: 18px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+}
+
+.popular .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popular .header img{
+    cursor: pointer;
+}
+
+/*Utilise le grid pour classer les chambres concernés en une seule colonne*/
+.popular .chambres{
+    display: grid;
+    grid-template-columns: repeat(1,auto);
+    gap: 30px;
+    margin-top: 8px;
+}
+
+.popular .chambres .chambre{
+    display: flex;
+    padding: 5px;
+    background: white;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.popular .chambres .chambre .image{
+    width: 137px;
+    height: 144px;
+    border-radius: 20px 0 0 20px;
+}
+
+.popular .chambres .chambre:nth-child(1) .image{
+    background-image: url("../Images/Chambres/0da2d055503dacc67150720f3b0f2e85.jpeg");
+}
+.popular .chambres .chambre:nth-child(2) .image{
+    background-image: url("../Images/Chambres/b43e37b7b1f60ae54fd08dc4b2463069.jpeg");
+}
+.popular .chambres .chambre:nth-child(3) .image{
+    background-image: url("../Images/Chambres/2e06273f1332a33d85b6f226363c31f1.jpeg");
+}
+
+.popular .chambres .chambre .image{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.popular .chambres .chambre .infos{
+    padding: 20px;
+}
+
+.activites > h2{
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+}
+
+.activites .paysage{
+    background: white;
+    height: 100%;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.activites .paysages{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    margin: 40px 0;
+    justify-content: space-around;
+}
+
+.activites .paysage h2{
+    height: 50px;
+    display: block;
+    margin: 20px;
+    text-wrap: wrap;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+}
+.activites .paysage .image{
+    width: 100%;
+    height: calc(100% - 50px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px 20px 0 0;
+}
+
+.activites .paysage:nth-child(1) .image{
+    background-image: url("../Images/Paysage/66c3b0aeb80e66379491de33ff5c3683.jpeg");
+}
+.activites .paysage:nth-child(2) .image{
+    background-image: url("../Images/Paysage/0de6008385cbf95b8b3cd98973cae6ee.jpeg");
+}
+.activites .paysage:nth-child(3) .image{
+    background-image: url("../Images/Paysage/730e13341101f4264a254eb3444fb2a0.jpeg");
+}
+.activites .paysage:nth-child(4) .image{
+    background-image: url("../Images/Paysage/87dfd2cf2d055c49a978b0235506c7d3.jpeg");
+}
+
+footer{
+    width: 100%;
+    min-height: 225px;
+    background: var(--ui-grey);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+footer ul{
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+/* Responsive tablette */
+@media screen and (max-width:1024px) {
+    .hebergements{
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        margin: 0;
+        gap: 40px;
+    }
+
+    .hebergements .search{
+        margin: 0;
+    }
+
+    .popular .chambres{
+        grid-template-columns: repeat(3,auto);
+        gap: 30px;
+        margin-top: 8px;
+    }
+
+    .popular{
+        min-width: 868px !important;
+        width: 100% !important;
+        margin-left: 30px;
+    }
+
+    .info-result{
+        margin-bottom: 30px;
+    }
+
+    .search .chambres{
+        gap: 30px;
+        margin: 30px;
+    }
+
+    .search .chambres .chambre{
+        width: 246px !important;
+        height: 200px !important;
+    }
+
+    .popular h2{
+        margin-bottom: 30px;
+    }
+
+    .search{
+        min-width: 938px !important;
+    }
+
+    .popular .chambre{
+        width: 252px;
+        height: 144px;
+        overflow: hidden;
+    }
+
+    .popular .chambre .image{
+        height: 100% !important;
+        padding-bottom: 30px;
+    }
+
+    .popular .chambre .infos h2{
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .activites .paysage{
+        width: 182px !important;
+        height: 267px !important;
+        overflow-y: scroll;
+    }
+
+    .activites .paysage::-webkit-scrollbar-thumb{
+        display: none;
+    }
+    .activites .paysage::-webkit-scrollbar-track{
+        display: none;
+    }
+    .activites .paysage::-webkit-scrollbar{
+        display: none;
+    }
+
+    .activites .paysage h2{
+        margin: 10px !important;
+    }
+
+    .activites .paysages{
+        gap:30px;
+        height: 270px !important;
+    }
+}
+
+/*Responsive mobile*/
+@media screen and (max-width:700px) {
+    header{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: white;
+        gap: 40px;
+    }
+
+    .right a::before{
+        content: "";
+        display: none;
+    }
+
+    .right a::after{
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        width: 0;
+        height: 2px;
+        background: var(--dark-blue);
+        transition: all 0.2s;
+    }
+
+    .right a:first-child::after{
+        left: 0;
+    }
+    .right a:last-child::after{
+        right: 0;
+        transition: all 0.2s;
+    }
+
+    .right a.selected::after{
+        content: "";
+        width: 100%;
+        left: 0;
+    }   
+
+    .right{
+        max-width: 100% !important;
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .right a{
+        width: 50% !important;
+        text-align: center;
+    }
+
+    body{
+        width: 375px !important;
+    }
+
+    main{
+        width: 100%;
+    }
+
+    .filters{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .filters ul{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        gap: 30px;
+    }
+
+    .hebergements{
+        flex-direction: column-reverse;
+    }
+
+    .hebergements .popular .chambres{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hebergements .popular,.hebergements .search {
+        min-width: 335px !important;
+        width: 100%;
+    }
+
+    .map-logo{
+        min-width: 50px !important;
+        min-height: 50px !important;
+    }
+
+    .hebergements .search .chambres{
+        display: flex;
+        flex-direction: column;
+        margin: 0 !important;
+        margin-bottom: 30px !important;
+    }
+
+    .activites .paysages{
+        width: 334px !important;
+        height: fit-content !important;
+        flex-direction: column;
+    }
+
+    .activites .paysage{
+        width: 100% !important;
+    }
+
+    footer{
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start;
+        padding: 30px;
+    }
+}

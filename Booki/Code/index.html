@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="left">
+            <img src="../Images/Logo.png" alt="">
+        </div>
+        <div class="right">
+            <a href="#" onclick="event.preventDefault();event.target.classList.add('selected');document.querySelector('header .right a.a').classList.remove('selected');" class="selected h">Hébergements</a>
+            <a href="#" onclick="event.preventDefault();event.target.classList.add('selected');document.querySelector('header .right a.h').classList.remove('selected');" class="a">Activités</a>
+        </div>
+    </header>
+    <main>
+        <h1 class="title">Trouvez votre hébergement pour des vacances de rêve</h1>
+        <p>En plein centre-ville ou en pleine nature</p>
+        <form action="#">
+            <div class="search-input">
+                <div class="map-logo">
+                    <img src="../Images/Icones/map.svg" alt="">
+                </div>
+                <input type="text" placeholder="Inscrire une ville" value="Marseille, France">
+                <button type="submit" onclick="event.preventDefault()">Rechercher</button>
+            </div>
+        </form>
+        <div class="filters">
+            <h2>Filtres</h2>
+            <ul>
+                <li><img src="../Images/Icones/price.svg" alt=""><a href="#" onclick="event.preventDefault();event.target.parentNode.classList.toggle('selected')">Economique</a></li>
+                <li><img src="../Images/Icones/people.svg" alt=""><a href="#" onclick="event.preventDefault();event.target.parentNode.classList.toggle('selected')">Familial</a></li>
+                <li><img src="../Images/Icones/heart.svg" alt=""><a href="#" onclick="event.preventDefault();event.target.parentNode.classList.toggle('selected')">Romantique</a></li>
+                <li><img src="../Images/Icones/dog.svg" alt=""><a href="#" onclick="event.preventDefault();event.target.parentNode.classList.toggle('selected')">Animaux autorisés</a></li>
+            </ul>
+        </div>
+        <div class="info-result">
+            <div class="info-logo"><img src="../Images/Icones/info.svg" alt=""></div>
+            <p>Plus de 500 logements sont disponibles dans cette ville</p>
+        </div>
+        <div class="hebergements">
+            <div class="search">
+                <h2>Hébergements à Marseille</h2>
+                <div class="chambres">
+                    <div class="chambre">
+                        <img src="../Images/Chambres/16ef101b07d2affb696a7611d9e446c4.jpeg" alt="">
+                        <h2>Auberge La Canebière</h2>
+                        <p>Nuit à partir de 25€</p>
+                        <div class="etoiles">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star-empty.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="chambre">
+                        <img src="../Images/Chambres/967ac2a7cb19bb0c4258e86af21e4053.jpeg" alt="">
+                        <h2>Hôtel du port</h2>
+                        <p>Nuit à partir de 52€</p>
+                        <div class="etoiles">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star-empty.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="chambre">
+                        <img src="../Images/Chambres/ece9a0f6a77dc263e5dd6eb3bdb9d6fc.jpeg" alt="">
+                        <h2>Hôtel Les mouettes</h2>
+                        <p>Nuit à partir de 76€</p>
+                        <div class="etoiles">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star-empty.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="chambre">
+                        <img src="../Images/Chambres/094cc9ee0f12d9f9a4145d2a38937583.jpeg" alt="">
+                        <h2>Hôtel de la mer</h2>
+                        <p>Nuit à partir de 46€</p>
+                        <div class="etoiles">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star-empty.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="chambre">
+                        <img src="../Images/Chambres/a1c07ec76ba9ab940c3109f498064160.jpeg" alt="">
+                        <h2>Auberge Le Panier</h2>
+                        <p>Nuit à partir de 23€</p>
+                        <div class="etoiles">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star-empty.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="chambre">
+                        <img alt="">
+                        <h2>Hôtel chez Amina</h2>
+                        <p>Nuit à partir de 96€</p>
+                        <div class="etoiles">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star.svg" alt="">
+                            <img src="../Images/Icones/star-empty.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="more" onclick="event.preventDefault()">Afficher plus</a>
+            </div>
+            <div class="popular">
+                <div class="header">
+                    <h2>Les plus populaires</h2>
+                    <img src="../Images/Icones/chart.svg" alt="">
+                </div>
+                <div class="chambres">
+                    <div class="chambre">
+                        <div class="image"></div>
+                        <div class="infos">
+                            <h2>Hôtel Le soleil du matin</h2>
+                            <p>Nuit à partir de 128€</p>
+                            <div class="etoiles">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star-empty.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chambre">
+                        <div class="image"></div>
+                        <div class="infos">
+                            <h2>Chambres d’hôtes Au cœur de l’eau</h2>
+                            <p>Nuit à partir de 71€</p>
+                            <div class="etoiles">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star-empty.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chambre">
+                        <div class="image"></div>
+                        <div class="infos">
+                            <h2>Hôtel Tout bleu et Blanc</h2>
+                            <p>Nuit à partir de 68€</p>
+                            <div class="etoiles">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star.svg" alt="">
+                                <img src="../Images/Icones/star-empty.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="activites">
+            <h2>Activités à Marseille</h2>
+            <div class="paysages">
+                <div class="paysage">
+                    <div class="image"></div>
+                    <h2>Vieux-Port</h2>
+                </div>
+                <div class="paysage">
+                    <div class="image"></div>
+                    <h2>Fort de Pomègues</h2>
+                </div>
+                <div class="paysage">
+                    <div class="image"></div>
+                    <h2>Parc national des Calanques</h2>
+                </div>
+                <div class="paysage">
+                    <div class="image"></div>
+                    <h2>Notre-Dame-de-la-Garde</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="group">
+            <h2>A propos</h2>
+            <ul>
+                <li><a href="" onclick="event.preventDefault()">Fonctionnement du site</a></li>
+                <li><a href="" onclick="event.preventDefault()">Conditions générales</a></li>
+                <li><a href="" onclick="event.preventDefault()">Données et confidentialité</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Nos hébergements</h2>
+            <ul>
+                <li><a href="" onclick="event.preventDefault()">Charte qualité</a></li>
+                <li><a href="" onclick="event.preventDefault()">Proposer votre hôtel</a></li>
+            </ul>
+        </div>
+        <div class="group">
+            <h2>Assistance</h2>
+            <ul>
+                <li><a href="" onclick="event.preventDefault()">Centre d'aide</a></li>
+                <li><a href="" onclick="event.preventDefault()">Nous contacter</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
